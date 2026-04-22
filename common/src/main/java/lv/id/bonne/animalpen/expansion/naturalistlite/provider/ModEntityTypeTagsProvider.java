@@ -7,7 +7,7 @@
 package lv.id.bonne.animalpen.expansion.naturalistlite.provider;
 
 
-import com.starfish_studios.naturalist.registry.NaturalistEntityTypes;
+import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
 
 import lv.id.bonne.animalpen.data.helper.SimpleTagAppender;
 import lv.id.bonne.animalpen.registries.AnimalPenTags;

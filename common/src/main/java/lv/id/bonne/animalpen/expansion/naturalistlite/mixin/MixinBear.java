@@ -7,7 +7,7 @@
 package lv.id.bonne.animalpen.expansion.naturalistlite.mixin;
 
 
-import com.starfish_studios.naturalist.entity.Bear;
+import com.starfish_studios.naturalist.common.entity.Bear;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 

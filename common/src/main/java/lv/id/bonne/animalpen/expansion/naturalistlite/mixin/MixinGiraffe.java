@@ -7,7 +7,7 @@
 package lv.id.bonne.animalpen.expansion.naturalistlite.mixin;
 
 
-import com.starfish_studios.naturalist.entity.Giraffe;
+import com.starfish_studios.naturalist.common.entity.Giraffe;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,7 +30,7 @@ public abstract class MixinGiraffe
 
     @Inject(method = "mobInteract",
         at = @At(value = "INVOKE",
-            target = "Lcom/starfish_studios/naturalist/entity/Giraffe;isFood(Lnet/minecraft/world/item/ItemStack;)Z"),
+            target = "Lcom/starfish_studios/naturalist/common/entity/Giraffe;isFood(Lnet/minecraft/world/item/ItemStack;)Z"),
         cancellable = true)
     private void injectProperInteraction(Player player,
         InteractionHand hand,
