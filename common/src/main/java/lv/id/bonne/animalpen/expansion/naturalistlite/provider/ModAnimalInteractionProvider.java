@@ -2,11 +2,7 @@ package lv.id.bonne.animalpen.expansion.naturalistlite.provider;
 
 
 import com.starfish_studios.naturalist.Naturalist;
-import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
-import com.starfish_studios.naturalist.core.registry.NaturalistSoundEvents;
-import com.starfish_studios.naturalist.core.registry.NaturalistTags;
-import com.starfish_studios.naturalist.registry.NaturalistRegistry;
+import com.starfish_studios.naturalist.core.registry.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -54,7 +50,7 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
             // Animal pen
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.SNAIL.get(),
-                List.of(this.generateBucketable(Items.BUCKET, NaturalistRegistry.SNAIL_BUCKET.get(), 1),
+                List.of(this.generateBucketable(Items.BUCKET, NaturalistItems.SNAIL_BUCKET.get(), 1),
                     this.generateAmbientSound(NaturalistSoundEvents.SNAIL_FORWARD.get())),
                 Naturalist.MOD_ID));
 
@@ -74,9 +70,9 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         runFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, true)).
                         finishFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, false)).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistRegistry.BEAR_FUR.get()))).
+                            CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.wool_cooldown",
-                            CustomIngredient.of(NaturalistRegistry.BEAR_FUR.get()))).
+                            CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
                         build(),
                     this.generateAmbientSound(NaturalistSoundEvents.BEAR_AMBIENT.get())),
                 Naturalist.MOD_ID));
@@ -161,9 +157,9 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
+                            CustomIngredient.of(NaturalistBlocks.ALLIGATOR_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
+                            CustomIngredient.of(NaturalistBlocks.ALLIGATOR_EGG.get()))).
                         build(),
                     this.generateAmbientSound(NaturalistSoundEvents.GATOR_AMBIENT.get())),
                 Naturalist.MOD_ID));
@@ -185,9 +181,9 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
+                            CustomIngredient.of(NaturalistBlocks.TORTOISE_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
+                            CustomIngredient.of(NaturalistBlocks.TORTOISE_EGG.get()))).
                         build()),
                 Naturalist.MOD_ID));
 
@@ -249,9 +245,9 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
+                            CustomIngredient.of(NaturalistItems.DUCK_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
+                            CustomIngredient.of(NaturalistItems.DUCK_EGG.get()))).
                         build(),
                     this.generateAmbientSound(NaturalistSoundEvents.DUCK_AMBIENT.get())),
                 Naturalist.MOD_ID));
@@ -260,14 +256,14 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CATFISH.get(),
                 List.of(
-                    this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.CATFISH_BUCKET.get(), 2),
+                    this.generateBucketable(Items.WATER_BUCKET, NaturalistItems.CATFISH_BUCKET.get(), 2),
                     this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BASS.get(),
                 List.of(
-                    this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.BASS_BUCKET.get(), 2),
+                    this.generateBucketable(Items.WATER_BUCKET, NaturalistItems.BASS_BUCKET.get(), 2),
                     this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
                 Naturalist.MOD_ID));
 
