@@ -2,10 +2,7 @@ package lv.id.bonne.animalpen.expansion.naturalistlite.provider;
 
 
 import com.starfish_studios.naturalist.Naturalist;
-import com.starfish_studios.naturalist.registry.NaturalistEntityTypes;
-import com.starfish_studios.naturalist.registry.NaturalistItems;
-import com.starfish_studios.naturalist.registry.NaturalistSoundEvents;
-import com.starfish_studios.naturalist.registry.NaturalistTags;
+import com.starfish_studios.naturalist.registry.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -45,7 +42,7 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
         // Animal pen
         this.generateWithInteractions(cache,
             NaturalistEntityTypes.SNAIL.get(),
-            List.of(this.generateBucketable(Items.BUCKET, NaturalistItems.SNAIL_BUCKET.get(), 1),
+            List.of(this.generateBucketable(Items.BUCKET, NaturalistRegistry.SNAIL_BUCKET.get(), 1),
                 this.generateAmbientSound(NaturalistSoundEvents.SNAIL_FORWARD.get())),
             Naturalist.MOD_ID);
 
@@ -64,9 +61,9 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                     runFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, true)).
                     finishFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, false)).
                     textLines(TextEntry.ready("display.animal_pen.full_ready",
-                        CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
+                        CustomIngredient.of(NaturalistRegistry.BEAR_FUR.get()))).
                     textLines(TextEntry.cooldown("display.animal_pen.wool_cooldown",
-                        CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
+                        CustomIngredient.of(NaturalistRegistry.BEAR_FUR.get()))).
                     build(),
                 this.generateAmbientSound(NaturalistSoundEvents.BEAR_AMBIENT.get())),
             Naturalist.MOD_ID);
@@ -140,6 +137,47 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                 this.generateAmbientSound(SoundEvents.PIG_AMBIENT)),
             Naturalist.MOD_ID);
 
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.ALLIGATOR.get(),
+            List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.ALLIGATOR_FOOD_ITEMS)),
+                AnimalInteractionBuilder.create("eggs").
+                    ingredient(CustomIngredient.of(Items.BUCKET)).
+                    lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/alligator_egg"),
+                        320,
+                        true)).
+                    cooldown(new CooldownEntry.Linear(6000, -20, 200)).
+                    redstoneBit(2).
+                    textLines(TextEntry.ready("display.animal_pen.full_ready",
+                        CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
+                    textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
+                        CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
+                    build(),
+                this.generateAmbientSound(NaturalistSoundEvents.GATOR_AMBIENT.get())),
+            Naturalist.MOD_ID);
+
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.LIZARD.get(),
+            List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.LIZARD_TEMPT_ITEMS)),
+                this.generateAmbientSound(SoundEvents.SLIME_SQUISH)),
+            Naturalist.MOD_ID);
+
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.TORTOISE.get(),
+            List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.TORTOISE_TEMPT_ITEMS)),
+                AnimalInteractionBuilder.create("eggs").
+                    ingredient(CustomIngredient.of(Items.BUCKET)).
+                    lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/tortoise_egg"),
+                        320,
+                        true)).
+                    cooldown(new CooldownEntry.Linear(6000, -20, 200)).
+                    redstoneBit(2).
+                    textLines(TextEntry.ready("display.animal_pen.full_ready",
+                        CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
+                    textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
+                        CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
+                    build()),
+            Naturalist.MOD_ID);
+
         // Aviary
         this.generateWithInteractions(cache,
             NaturalistEntityTypes.BUTTERFLY.get(),
@@ -179,6 +217,45 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
             NaturalistEntityTypes.VULTURE.get(),
             List.of(this.generateFood(CustomIngredient.of(Items.ROTTEN_FLESH)),
                 this.generateAmbientSound(NaturalistSoundEvents.VULTURE_AMBIENT.get())),
+            Naturalist.MOD_ID);
+
+        // TODO: Summon area of effect
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.DRAGONFLY.get(),
+            List.of(),
+            Naturalist.MOD_ID);
+
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.DUCK.get(),
+            List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.DUCK_FOOD_ITEMS)),
+                AnimalInteractionBuilder.create("eggs").
+                    ingredient(CustomIngredient.of(Items.BUCKET)).
+                    lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/duck_egg"),
+                        320,
+                        true)).
+                    cooldown(new CooldownEntry.Linear(6000, -20, 200)).
+                    redstoneBit(2).
+                    textLines(TextEntry.ready("display.animal_pen.full_ready",
+                        CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
+                    textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
+                        CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
+                    build(),
+                this.generateAmbientSound(NaturalistSoundEvents.DUCK_AMBIENT.get())),
+            Naturalist.MOD_ID);
+
+        // Aquarium
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.CATFISH.get(),
+            List.of(
+                this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.CATFISH_BUCKET.get(), 2),
+                this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
+            Naturalist.MOD_ID);
+
+        this.generateWithInteractions(cache,
+            NaturalistEntityTypes.BASS.get(),
+            List.of(
+                this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.BASS_BUCKET.get(), 2),
+                this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
             Naturalist.MOD_ID);
     }
 }

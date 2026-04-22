@@ -17,13 +17,13 @@ public class AnimalPenForgeDataGen
     {
         DataGenerator generator = event.getGenerator();
 
-        if (event.includeServer())
-        {
-            generator.addProvider(true, new ModAnimalInteractionProvider(generator));
+        generator.addProvider(event.includeServer(), new ModAnimalInteractionProvider(generator));
 
-            generator.addProvider(true, new ForgeModEntityTypeTagProvider(generator,
-                AnimalPen.MOD_ID,
-                event.getExistingFileHelper()));
-        }
+        generator.addProvider(event.includeServer(), new ForgeModEntityTypeTagProvider(generator,
+            AnimalPen.MOD_ID,
+            event.getExistingFileHelper()));
+
+        generator.addProvider(event.includeServer(),
+            new ForgeModLootTableProvider(generator));
     }
 }
