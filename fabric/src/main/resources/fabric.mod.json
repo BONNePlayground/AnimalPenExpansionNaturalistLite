@@ -24,7 +24,7 @@
     "java": ">=17"
     ,"architectury": ">=9.2.14"
     ,"animal_pen": ">=2.3.1"
-    ,"naturalist": ">=4.0.0"
+    ,"naturalist": [">=4.0.0", "5.0pre3", "5.0pre5"]
   },
   "suggests": {
     "another-mod": "*"
