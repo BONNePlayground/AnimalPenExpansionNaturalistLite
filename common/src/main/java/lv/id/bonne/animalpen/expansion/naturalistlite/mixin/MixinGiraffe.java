@@ -14,28 +14,31 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 
 @Mixin(Giraffe.class)
 public abstract class MixinGiraffe
 {
+
     @Shadow
-    public abstract boolean isBreedingItem(ItemStack stack);
+    public abstract boolean isFood(ItemStack stack);
 
 
-    @Inject(method = "interactMob",
+    @Inject(method = "mobInteract",
         at = @At(value = "INVOKE",
-            target = "Lcom/starfish_studios/naturalist/entity/Giraffe;isBreedingItem(Lnet/minecraft/item/ItemStack;)Z"),
+            target = "Lcom/starfish_studios/naturalist/entity/Giraffe;isFood(Lnet/minecraft/world/item/ItemStack;)Z"),
         cancellable = true)
-    private void injectProperInteraction(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir)
+    private void injectProperInteraction(Player player,
+        InteractionHand hand,
+        CallbackInfoReturnable<InteractionResult> cir)
     {
-        if (!this.isBreedingItem(player.getStackInHand(hand)))
+        if (!this.isFood(player.getItemInHand(hand)))
         {
-            cir.setReturnValue(ActionResult.PASS);
+            cir.setReturnValue(InteractionResult.PASS);
             cir.cancel();
         }
     }

@@ -59,7 +59,7 @@ dependencies {
         exclude(group: "net.fabricmc", module: "fabric-loader")
     }
 
-    modImplementation ("software.bernie.geckolib:geckolib-fabric-1.18:$rootProject.geckolib_fabric_version") {
+    modImplementation ("software.bernie.geckolib:geckolib-fabric-$rootProject.minecraft_version:$rootProject.geckolib_fabric_version") {
         exclude(group: "net.fabricmc", module: "fabric-api")
         exclude(group: "net.fabricmc", module: "fabric-loader")
     }

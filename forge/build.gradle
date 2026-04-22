@@ -61,7 +61,7 @@ dependencies {
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
 
     modImplementation "curse.maven:naturalist-627986:$rootProject.naturalist_lite_forge_version"
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.18:$rootProject.geckolib_forge_version"
+    modImplementation "software.bernie.geckolib:geckolib-forge-$rootProject.minecraft_version:$rootProject.geckolib_forge_version"
 
     modImplementation "curse.maven:animal-pens-1206722:$rootProject.animal_pen_forge_version"
 }

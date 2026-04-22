@@ -20,12 +20,11 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.10",
-    "minecraft": "~1.18.2",
+    "minecraft": "~1.19",
     "java": ">=17"
-    ,"architectury": ">=4.12.94"
-    ,"fabric-api": "*"
-    ,"animal_pen": ">=2.3.0"
-    ,"naturalist": ">=1.1.1"
+    ,"architectury": ">=5.14.84"
+    ,"animal_pen": ">=2.3.1"
+    ,"naturalist": ">=2.0.0"
   },
   "suggests": {
     "another-mod": "*"

@@ -11,8 +11,8 @@ import com.starfish_studios.naturalist.registry.NaturalistEntityTypes;
 
 import lv.id.bonne.animalpen.data.helper.SimpleTagAppender;
 import lv.id.bonne.animalpen.registries.AnimalPenTags;
-import net.minecraft.entity.EntityType;
-import net.minecraft.tag.TagKey;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 
 
 @FunctionalInterface
