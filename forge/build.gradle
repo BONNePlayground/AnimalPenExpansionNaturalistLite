@@ -82,3 +82,38 @@ shadowJar {
 remapJar {
     input.set shadowJar.archiveFile
 }
+
+
+// ─── Datapack generation ────────────────────────────────────────────────────
+
+tasks.register("generateDatapack", Zip) {
+    group       = "mod"
+    description = "Assembles a standalone datapack from the mod's data-driven files."
+
+    def mcmeta = """
+{
+  "pack": {
+    "pack_format": 15,
+    "description": "${archives_name} data pack v${mod_version}"
+  }
+}
+""".stripIndent().strip()
+
+    from("../common/src/main/generated/") {
+        include "data/**"
+    }
+
+    doFirst {
+        def metaDir = layout.buildDirectory.dir("tmp/datapack-meta").get().asFile
+        metaDir.mkdirs()
+        new File(metaDir, "pack.mcmeta").text = mcmeta
+        from(metaDir)
+    }
+
+    archiveFileName      = "${archives_name}-datapack-${mod_version}.zip"
+    destinationDirectory = layout.buildDirectory.dir("datapack")
+    preserveFileTimestamps = false
+    reproducibleFileOrder  = true
+}
+
+tasks.named("build") { dependsOn("generateDatapack") }
