@@ -1,0 +1,14 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://files.minecraftforge.net/maven/" }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'animal_pen_expansion_naturalist_lite'
+
+include 'common'
+include 'fabric'
+include 'forge'
