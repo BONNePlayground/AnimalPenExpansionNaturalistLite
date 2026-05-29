@@ -1,21 +1,19 @@
-package lv.id.bonne.animalpen.expansion.naturalistlite.forge.provider;
+package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider;
 
 
 import com.starfish_studios.naturalist.Naturalist;
 import java.util.concurrent.CompletableFuture;
 
-import lv.id.bonne.animalpen.AnimalPen;
-import lv.id.bonne.animalpen.expansion.naturalistlite.provider.ModAnimalInteractionProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AnimalPenForgeDataGen
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+public class AnimalPenNeoForgeDataGen
 {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event)
@@ -28,12 +26,12 @@ public class AnimalPenForgeDataGen
             new ModAnimalInteractionProvider(packOutput, lookupProvider));
 
         generator.addProvider(event.includeServer(),
-            new ForgeModEntityTypeTagProvider(packOutput,
+            new NeoForgeModEntityTypeTagProvider(packOutput,
                 lookupProvider,
                 Naturalist.MOD_ID,
                 event.getExistingFileHelper()));
 
         generator.addProvider(event.includeServer(),
-            new ForgeModLootTableProvider(packOutput));
+            new NeoForgeModLootTableProvider(packOutput, lookupProvider));
     }
 }

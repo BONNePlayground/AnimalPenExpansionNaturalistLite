@@ -22,6 +22,7 @@ Animal Cage can pick up:
 - (Nat4+) Alligator - can be fed with alligator food items and produce eggs
 - (Nat4+) Lizard - can be fed with lizard tempt items
 - (Nat4+) Tortoise - can be fed with tortoise tempt items and produce eggs
+- (Nat1.0+) Duck - can be fed with duck food items and produce eggs
 
 Bird Catcher Pickable:
 - Butterfly - can be fed with flowers
@@ -33,6 +34,8 @@ Bird Catcher Pickable:
 - Vulture - can be fed with rotten flesh
 - (Nat4+) Dragonfly - no extra interactions
 - (Nat4+) Duck - can be fed with duck food items and produce eggs
+- (Nat1.0+) Finch - can be fed with bird food items
+- (Nat1.0+) Sparrow - can be fed with bird food items
 
 Water Container Pickable:
 - (Nat4+) Catfish - can be picked up with water bucket

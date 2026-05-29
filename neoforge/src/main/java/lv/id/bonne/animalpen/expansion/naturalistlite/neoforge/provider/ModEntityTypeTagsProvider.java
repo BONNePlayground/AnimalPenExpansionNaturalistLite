@@ -4,10 +4,10 @@
 //
 
 
-package lv.id.bonne.animalpen.expansion.naturalistlite.provider;
+package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider;
 
 
-import com.starfish_studios.naturalist.core.registry.NaturalistEntityTypes;
+import com.starfish_studios.naturalist.registry.NaturalistEntityTypes;
 
 import lv.id.bonne.animalpen.data.helper.SimpleTagAppender;
 import lv.id.bonne.animalpen.registries.AnimalPenTags;
@@ -40,6 +40,7 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.BOAR.get()).
             add(NaturalistEntityTypes.ALLIGATOR.get()).
             add(NaturalistEntityTypes.LIZARD.get()).
+            add(NaturalistEntityTypes.DUCK.get()).
             add(NaturalistEntityTypes.TORTOISE.get());
         this.modTag(AnimalPenTags.BIRD_CATCHER_PICKABLE).
             add(NaturalistEntityTypes.BUTTERFLY.get()).
@@ -50,7 +51,9 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.ROBIN.get()).
             add(NaturalistEntityTypes.VULTURE.get()).
             add(NaturalistEntityTypes.DRAGONFLY.get()).
-            add(NaturalistEntityTypes.DUCK.get());
+            add(NaturalistEntityTypes.DUCK.get()).
+            add(NaturalistEntityTypes.FINCH.get()).
+            add(NaturalistEntityTypes.SPARROW.get());
         this.modTag(AnimalPenTags.WATER_MOB_CONTAINER_PICKABLE).
             add(NaturalistEntityTypes.CATFISH.get()).
             add(NaturalistEntityTypes.BASS.get());

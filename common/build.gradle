@@ -10,6 +10,6 @@ dependencies {
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-    modCompileOnly "curse.maven:naturalist-627986:$rootProject.naturalist_lite_fabric_version"
-    modCompileOnly "curse.maven:animal-pens-1206722:$rootProject.animal_pen_fabric_version"
+//    modCompileOnly "curse.maven:naturalist-627986:$rootProject.naturalist_lite_fabric_version"
+//    modCompileOnly "curse.maven:animal-pens-1206722:$rootProject.animal_pen_fabric_version"
 }

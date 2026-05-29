@@ -1,4 +1,4 @@
-package lv.id.bonne.animalpen.expansion.naturalistlite.forge.provider;
+package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -7,18 +7,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 import lv.id.bonne.animalpen.data.helper.SimpleTagAppender;
-import lv.id.bonne.animalpen.expansion.naturalistlite.provider.ModEntityTypeTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 
-public class ForgeModEntityTypeTagProvider extends EntityTypeTagsProvider implements ModEntityTypeTagsProvider
+public class NeoForgeModEntityTypeTagProvider extends EntityTypeTagsProvider implements ModEntityTypeTagsProvider
 {
-    public ForgeModEntityTypeTagProvider(PackOutput arg,
+    public NeoForgeModEntityTypeTagProvider(PackOutput arg,
         CompletableFuture<HolderLookup.Provider> completableFuture,
         String modId,
         @Nullable ExistingFileHelper existingFileHelper)

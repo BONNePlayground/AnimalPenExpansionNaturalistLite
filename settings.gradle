@@ -9,6 +9,6 @@ pluginManagement {
 
 rootProject.name = 'animal_pen_expansion_naturalist_lite'
 
-include 'common'
-include 'fabric'
-include 'forge'
+//include 'common'
+//include 'fabric'
+include 'neoforge'
