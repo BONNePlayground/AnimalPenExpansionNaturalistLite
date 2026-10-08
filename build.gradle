@@ -40,14 +40,22 @@ subprojects {
             name = 'GeckoLib'
             url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
         }
+
+        maven {
+            url = "https://api.modrinth.com/maven"
+        }
+
+        repositories {
+            maven { url "https://maven.parchmentmc.org" }
+        }
     }
 
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
 
         mappings loom.layered() {
-            officialMojangMappings()
-            "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+            it.officialMojangMappings()
+            it.parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03")
         }
     }
 

@@ -6,6 +6,7 @@ import com.starfish_studios.naturalist.core.registry.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 import lv.id.bonne.animalpen.data.provider.AnimalInteractionProvider;
 import lv.id.bonne.animalpen.interaction.cooldown.CooldownEntry;
@@ -50,14 +51,15 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
             // Animal pen
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.SNAIL.get(),
-                List.of(this.generateBucketable(Items.BUCKET, NaturalistItems.SNAIL_BUCKET.get(), 1),
-                    this.generateAmbientSound(NaturalistSoundEvents.SNAIL_FORWARD.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(Items.BEETROOT)).stream(),
+                Stream.of(this.generateBucketable(Items.BUCKET, NaturalistRegistry.SNAIL_BUCKET.get(), 1),
+                    this.generateAmbientSound(NaturalistSoundEvents.SNAIL_FORWARD.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BEAR.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BEAR_TEMPT_ITEMS)),
-                    AnimalInteractionBuilder.create("shearing").
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BEAR_TEMPT_ITEMS)).stream(),
+                    Stream.of(AnimalInteractionBuilder.create("shearing").
                         ingredient(CustomIngredient.merge(CustomIngredient.of(Items.SHEARS),
                             CustomIngredient.of(AnimalPenTags.FORGE_SHEARS),
                             CustomIngredient.of(AnimalPenTags.COMMON_SHEARS))).
@@ -70,38 +72,38 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         runFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, true)).
                         finishFunctions(FunctionKey.of(AnimalPenFunctionRegistry.MOB_SET_SHEARED.get(), null, false)).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
+                            CustomIngredient.of(NaturalistRegistry.FUR.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.wool_cooldown",
-                            CustomIngredient.of(NaturalistItems.BEAR_FUR.get()))).
+                            CustomIngredient.of(NaturalistRegistry.FUR.get()))).
                         build(),
-                    this.generateAmbientSound(NaturalistSoundEvents.BEAR_AMBIENT.get())),
+                    this.generateAmbientSound(NaturalistSoundEvents.BEAR_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.SNAKE.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.SNAKE_HISS.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.SNAKE_HISS.get()))).toList(),
                 Naturalist.MOD_ID));
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CORAL_SNAKE.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.SNAKE_HISS.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.SNAKE_HISS.get()))).toList(),
                 Naturalist.MOD_ID));
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.RATTLESNAKE.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.SNAKE_RATTLE.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.SNAKE_TEMPT_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.SNAKE_RATTLE.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.DEER.get(),
-                List.of(this.generateFood(CustomIngredient.of(Items.APPLE)),
-                    this.generateAmbientSound(NaturalistSoundEvents.DEER_AMBIENT.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(Items.APPLE)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.DEER_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CATERPILLAR.get(),
-                List.of(this.generateFood(CustomIngredient.of(ItemTags.FLOWERS))),
+                this.generateFood(CustomIngredient.of(ItemTags.FLOWERS)),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
@@ -120,36 +122,36 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                 Naturalist.MOD_ID));
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.ZEBRA.get(),
-                List.of(this.generateFood(CustomIngredient.of(Items.WHEAT,
+                Stream.concat(this.generateFood(CustomIngredient.of(Items.WHEAT,
                         Items.SUGAR,
                         Blocks.HAY_BLOCK.asItem(),
                         Items.APPLE,
                         Items.GOLDEN_CARROT,
                         Items.GOLDEN_APPLE,
-                        Items.ENCHANTED_GOLDEN_APPLE)),
-                    this.generateAmbientSound(NaturalistSoundEvents.ZEBRA_AMBIENT.get())),
+                        Items.ENCHANTED_GOLDEN_APPLE)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.ZEBRA_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.GIRAFFE.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.GIRAFFE_FOOD_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.GIRAFFE_AMBIENT.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.GIRAFFE_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.GIRAFFE_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.HIPPO.get(),
-                List.of(this.generateFood(CustomIngredient.of(Blocks.MELON)),
-                    this.generateAmbientSound(NaturalistSoundEvents.HIPPO_AMBIENT.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(Blocks.MELON)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.HIPPO_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BOAR.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BOAR_FOOD_ITEMS)),
-                    this.generateAmbientSound(SoundEvents.PIG_AMBIENT)),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BOAR_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(SoundEvents.PIG_AMBIENT))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.ALLIGATOR.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.ALLIGATOR_FOOD_ITEMS)),
-                    AnimalInteractionBuilder.create("eggs").
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.ALLIGATOR_FOOD_ITEMS)).stream(),
+                    Stream.of(AnimalInteractionBuilder.create("eggs").
                         ingredient(CustomIngredient.of(Items.BUCKET)).
                         lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/alligator_egg"),
                             320,
@@ -157,23 +159,23 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistBlocks.ALLIGATOR_EGG.get()))).
+                            CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistBlocks.ALLIGATOR_EGG.get()))).
+                            CustomIngredient.of(NaturalistRegistry.ALLIGATOR_EGG.get()))).
                         build(),
-                    this.generateAmbientSound(NaturalistSoundEvents.GATOR_AMBIENT.get())),
+                    this.generateAmbientSound(NaturalistSoundEvents.GATOR_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.LIZARD.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.LIZARD_TEMPT_ITEMS)),
-                    this.generateAmbientSound(SoundEvents.SLIME_SQUISH)),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.LIZARD_TEMPT_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(SoundEvents.SLIME_SQUISH))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.TORTOISE.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.TORTOISE_TEMPT_ITEMS)),
-                    AnimalInteractionBuilder.create("eggs").
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.TORTOISE_TEMPT_ITEMS)).stream(),
+                    Stream.of(AnimalInteractionBuilder.create("eggs").
                         ingredient(CustomIngredient.of(Items.BUCKET)).
                         lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/tortoise_egg"),
                             320,
@@ -181,16 +183,16 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistBlocks.TORTOISE_EGG.get()))).
+                            CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistBlocks.TORTOISE_EGG.get()))).
-                        build()),
+                            CustomIngredient.of(NaturalistRegistry.TORTOISE_EGG.get()))).
+                        build())).toList(),
                 Naturalist.MOD_ID));
 
             // Aviary
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BUTTERFLY.get(),
-                List.of(this.generateFood(CustomIngredient.of(ItemTags.FLOWERS))),
+                this.generateFood(CustomIngredient.of(ItemTags.FLOWERS)),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
@@ -200,32 +202,32 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BLUEJAY.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_BLUEJAY.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_BLUEJAY.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CANARY.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_CANARY.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_CANARY.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CARDINAL.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_CARDINAL.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_CARDINAL.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.ROBIN.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)),
-                    this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_ROBIN.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_ROBIN.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.VULTURE.get(),
-                List.of(this.generateFood(CustomIngredient.of(Items.ROTTEN_FLESH)),
-                    this.generateAmbientSound(NaturalistSoundEvents.VULTURE_AMBIENT.get())),
+                Stream.concat(this.generateFood(CustomIngredient.of(Items.ROTTEN_FLESH)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.VULTURE_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             futureList.add(
@@ -236,8 +238,8 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.DUCK.get(),
-                List.of(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.DUCK_FOOD_ITEMS)),
-                    AnimalInteractionBuilder.create("eggs").
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.DUCK_FOOD_ITEMS)).stream(),
+                    Stream.of(AnimalInteractionBuilder.create("eggs").
                         ingredient(CustomIngredient.of(Items.BUCKET)).
                         lootEntry(LootEntry.of(ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/duck_egg"),
                             320,
@@ -245,26 +247,43 @@ public class ModAnimalInteractionProvider extends AnimalInteractionProvider
                         cooldown(new CooldownEntry.Linear(6000, -20, 200)).
                         redstoneBit(2).
                         textLines(TextEntry.ready("display.animal_pen.full_ready",
-                            CustomIngredient.of(NaturalistItems.DUCK_EGG.get()))).
+                            CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
                         textLines(TextEntry.cooldown("display.animal_pen.egg_cooldown",
-                            CustomIngredient.of(NaturalistItems.DUCK_EGG.get()))).
+                            CustomIngredient.of(NaturalistRegistry.DUCK_EGG.get()))).
                         build(),
-                    this.generateAmbientSound(NaturalistSoundEvents.DUCK_AMBIENT.get())),
+                    this.generateAmbientSound(NaturalistSoundEvents.DUCK_AMBIENT.get()))).toList(),
                 Naturalist.MOD_ID));
 
             // Aquarium
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.CATFISH.get(),
                 List.of(
-                    this.generateBucketable(Items.WATER_BUCKET, NaturalistItems.CATFISH_BUCKET.get(), 2),
+                    this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.CATFISH_BUCKET.get(), 2),
                     this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
                 Naturalist.MOD_ID));
 
             futureList.add(this.generateWithInteractions(cache,
                 NaturalistEntityTypes.BASS.get(),
                 List.of(
-                    this.generateBucketable(Items.WATER_BUCKET, NaturalistItems.BASS_BUCKET.get(), 2),
+                    this.generateBucketable(Items.WATER_BUCKET, NaturalistRegistry.BASS_BUCKET.get(), 2),
                     this.generateAmbientSound(SoundEvents.SALMON_AMBIENT)),
+                Naturalist.MOD_ID));
+
+            futureList.add(this.generateWithInteractions(cache,
+                NaturalistEntityTypes.MOOSE.get(),
+                this.generateFood(CustomIngredient.of(Items.WHEAT)),
+                Naturalist.MOD_ID));
+
+            futureList.add(this.generateWithInteractions(cache,
+                NaturalistEntityTypes.SPARROW.get(),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_SPARROW.get()))).toList(),
+                Naturalist.MOD_ID));
+
+            futureList.add(this.generateWithInteractions(cache,
+                NaturalistEntityTypes.FINCH.get(),
+                Stream.concat(this.generateFood(CustomIngredient.of(NaturalistTags.ItemTags.BIRD_FOOD_ITEMS)).stream(),
+                    Stream.of(this.generateAmbientSound(NaturalistSoundEvents.BIRD_AMBIENT_FINCH.get()))).toList(),
                 Naturalist.MOD_ID));
 
             return CompletableFuture.allOf(futureList.toArray(CompletableFuture[]::new));

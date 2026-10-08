@@ -2,8 +2,7 @@ package lv.id.bonne.animalpen.expansion.naturalistlite.forge.provider.loottable;
 
 
 import com.starfish_studios.naturalist.Naturalist;
-import com.starfish_studios.naturalist.core.registry.NaturalistBlocks;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
+import com.starfish_studios.naturalist.core.registry.NaturalistRegistry;
 import java.util.function.BiConsumer;
 
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -23,21 +22,21 @@ public class ForgeModGiftLootProvider implements LootTableSubProvider
             ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/alligator_egg"),
             LootTable.lootTable().withPool(LootPool.lootPool().
                 setRolls(ConstantValue.exactly(1)).
-                add(LootItem.lootTableItem(NaturalistBlocks.ALLIGATOR_EGG.get())))
+                add(LootItem.lootTableItem(NaturalistRegistry.ALLIGATOR_EGG.get())))
         );
 
         consumer.accept(
             ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/tortoise_egg"),
             LootTable.lootTable().withPool(LootPool.lootPool().
                 setRolls(ConstantValue.exactly(1)).
-                add(LootItem.lootTableItem(NaturalistBlocks.TORTOISE_EGG.get().asItem())))
+                add(LootItem.lootTableItem(NaturalistRegistry.TORTOISE_EGG.get().asItem())))
         );
 
         consumer.accept(
             ResourceLocation.tryBuild(Naturalist.MOD_ID, "animal_interactions/bucket/duck_egg"),
             LootTable.lootTable().withPool(LootPool.lootPool().
                 setRolls(ConstantValue.exactly(1)).
-                add(LootItem.lootTableItem(NaturalistItems.DUCK_EGG.get())))
+                add(LootItem.lootTableItem(NaturalistRegistry.DUCK_EGG.get())))
         );
     }
 }

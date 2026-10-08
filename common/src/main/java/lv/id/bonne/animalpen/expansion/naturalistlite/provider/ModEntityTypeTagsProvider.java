@@ -1,6 +1,5 @@
 //
 // Created by BONNe
-// Copyright add(NaturalistEntityTypes.2025
 //
 
 
@@ -40,7 +39,8 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.BOAR.get()).
             add(NaturalistEntityTypes.ALLIGATOR.get()).
             add(NaturalistEntityTypes.LIZARD.get()).
-            add(NaturalistEntityTypes.TORTOISE.get());
+            add(NaturalistEntityTypes.TORTOISE.get()).
+            add(NaturalistEntityTypes.MOOSE.get());
         this.modTag(AnimalPenTags.BIRD_CATCHER_PICKABLE).
             add(NaturalistEntityTypes.BUTTERFLY.get()).
             add(NaturalistEntityTypes.FIREFLY.get()).
@@ -50,7 +50,9 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.ROBIN.get()).
             add(NaturalistEntityTypes.VULTURE.get()).
             add(NaturalistEntityTypes.DRAGONFLY.get()).
-            add(NaturalistEntityTypes.DUCK.get());
+            add(NaturalistEntityTypes.DUCK.get()).
+            add(NaturalistEntityTypes.SPARROW.get()).
+            add(NaturalistEntityTypes.FINCH.get());
         this.modTag(AnimalPenTags.WATER_MOB_CONTAINER_PICKABLE).
             add(NaturalistEntityTypes.CATFISH.get()).
             add(NaturalistEntityTypes.BASS.get());

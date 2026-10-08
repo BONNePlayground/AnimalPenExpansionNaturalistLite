@@ -68,6 +68,8 @@ dependencies {
         exclude(group: "net.fabricmc", module: "fabric-api")
         exclude(group: "net.fabricmc", module: "fabric-loader")
     }
+
+    modImplementation "maven.modrinth:midnightlib:${rootProject.midnightlib_fabric_version}-fabric"
 }
 
 processResources {
