@@ -1,13 +1,13 @@
 //
 // Created by BONNe
-// Copyright add(NaturalistEntityTypes.2025
 //
 
 
 package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider;
 
 
-import com.starfish_studios.naturalist.registry.NaturalistEntityTypes;
+
+import com.crispytwig.naturalist.registry.NaturalistEntityTypes;
 
 import lv.id.bonne.animalpen.data.helper.SimpleTagAppender;
 import lv.id.bonne.animalpen.registries.AnimalPenTags;
@@ -27,8 +27,6 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.SNAIL.get()).
             add(NaturalistEntityTypes.BEAR.get()).
             add(NaturalistEntityTypes.SNAKE.get()).
-            add(NaturalistEntityTypes.CORAL_SNAKE.get()).
-            add(NaturalistEntityTypes.RATTLESNAKE.get()).
             add(NaturalistEntityTypes.DEER.get()).
             add(NaturalistEntityTypes.CATERPILLAR.get()).
             add(NaturalistEntityTypes.RHINO.get()).
@@ -41,21 +39,42 @@ public interface ModEntityTypeTagsProvider
             add(NaturalistEntityTypes.ALLIGATOR.get()).
             add(NaturalistEntityTypes.LIZARD.get()).
             add(NaturalistEntityTypes.DUCK.get()).
-            add(NaturalistEntityTypes.TORTOISE.get());
+            add(NaturalistEntityTypes.TORTOISE.get()).
+            add(NaturalistEntityTypes.ANT.get()).
+            add(NaturalistEntityTypes.BLACK_BEAR.get()).
+            add(NaturalistEntityTypes.CAPYBARA.get()).
+            add(NaturalistEntityTypes.CRAB.get()).
+            add(NaturalistEntityTypes.GIANT_ISOPOD.get()).
+            add(NaturalistEntityTypes.HEDGEHOG.get()).
+            add(NaturalistEntityTypes.KOMODO_DRAGON.get()).
+            add(NaturalistEntityTypes.MAMMOTH.get()).
+            add(NaturalistEntityTypes.MOLE.get()).
+            add(NaturalistEntityTypes.OSTRICH.get()).
+            add(NaturalistEntityTypes.DESERT_SCORPION.get()).
+            add(NaturalistEntityTypes.JUNGLE_SCORPION.get()).
+            add(NaturalistEntityTypes.RAT.get()).
+            add(NaturalistEntityTypes.TIGER.get()).
+            add(NaturalistEntityTypes.TURKEY.get());
         this.modTag(AnimalPenTags.BIRD_CATCHER_PICKABLE).
             add(NaturalistEntityTypes.BUTTERFLY.get()).
             add(NaturalistEntityTypes.FIREFLY.get()).
-            add(NaturalistEntityTypes.BLUEJAY.get()).
-            add(NaturalistEntityTypes.CANARY.get()).
-            add(NaturalistEntityTypes.CARDINAL.get()).
-            add(NaturalistEntityTypes.ROBIN.get()).
             add(NaturalistEntityTypes.VULTURE.get()).
             add(NaturalistEntityTypes.DRAGONFLY.get()).
             add(NaturalistEntityTypes.DUCK.get()).
-            add(NaturalistEntityTypes.FINCH.get()).
-            add(NaturalistEntityTypes.SPARROW.get());
+            add(NaturalistEntityTypes.BIRD.get());
         this.modTag(AnimalPenTags.WATER_MOB_CONTAINER_PICKABLE).
             add(NaturalistEntityTypes.CATFISH.get()).
-            add(NaturalistEntityTypes.BASS.get());
+            add(NaturalistEntityTypes.BASS.get()).
+            add(NaturalistEntityTypes.ANGLERFISH.get()).
+            add(NaturalistEntityTypes.RAY.get()).
+            add(NaturalistEntityTypes.BLOBFISH.get()).
+            add(NaturalistEntityTypes.PIRANHA.get()).
+            add(NaturalistEntityTypes.CLAM.get()).
+            add(NaturalistEntityTypes.CRAB.get()).
+            add(NaturalistEntityTypes.GIANT_ISOPOD.get()).
+            add(NaturalistEntityTypes.GREAT_WHITE_SHARK.get()).
+            add(NaturalistEntityTypes.JELLYFISH.get()).
+            add(NaturalistEntityTypes.STARFISH.get()).
+            add(NaturalistEntityTypes.WHALE.get());
     }
 }

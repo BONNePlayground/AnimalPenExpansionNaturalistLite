@@ -1,8 +1,8 @@
 package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider.loottable;
 
 
-import com.starfish_studios.naturalist.Naturalist;
-import com.starfish_studios.naturalist.registry.NaturalistRegistry;
+import com.crispytwig.naturalist.Naturalist;
+import com.crispytwig.naturalist.registry.NaturalistRegistry;
 import java.util.function.BiConsumer;
 
 import net.minecraft.core.HolderLookup;
@@ -10,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -50,6 +51,30 @@ public class NeoForgeModGiftLootProvider implements LootTableSubProvider
             LootTable.lootTable().withPool(LootPool.lootPool().
                 setRolls(ConstantValue.exactly(1)).
                 add(LootItem.lootTableItem(NaturalistRegistry.DUCK_EGG.get())))
+        );
+
+        consumer.accept(
+            ResourceKey.create(Registries.LOOT_TABLE,
+                ResourceLocation.fromNamespaceAndPath(Naturalist.MOD_ID, "animal_interactions/bucket/ostrich_egg")),
+            LootTable.lootTable().withPool(LootPool.lootPool().
+                setRolls(ConstantValue.exactly(1)).
+                add(LootItem.lootTableItem(NaturalistRegistry.OSTRICH_EGG.get())))
+        );
+
+        consumer.accept(
+            ResourceKey.create(Registries.LOOT_TABLE,
+                ResourceLocation.fromNamespaceAndPath(Naturalist.MOD_ID, "animal_interactions/bucket/snail_eggs")),
+            LootTable.lootTable().withPool(LootPool.lootPool().
+                setRolls(ConstantValue.exactly(1)).
+                add(LootItem.lootTableItem(NaturalistRegistry.SNAIL_EGGS.get())))
+        );
+
+        consumer.accept(
+            ResourceKey.create(Registries.LOOT_TABLE,
+                ResourceLocation.fromNamespaceAndPath(Naturalist.MOD_ID, "animal_interactions/drop/snail_slime")),
+            LootTable.lootTable().withPool(LootPool.lootPool().
+                setRolls(ConstantValue.exactly(1)).
+                add(LootItem.lootTableItem(Items.SLIME_BALL)))
         );
 
         consumer.accept(

@@ -1,7 +1,7 @@
 package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.provider;
 
 
-import com.starfish_studios.naturalist.Naturalist;
+import com.crispytwig.naturalist.Naturalist;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;

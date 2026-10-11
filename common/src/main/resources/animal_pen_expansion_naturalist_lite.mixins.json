@@ -1,13 +1,13 @@
 {
   "required": true,
-  "package": "lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.mixin",
+  "package": "lv.id.bonne.animalpen.expansion.naturalistlite.mixin",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
   ],
   "mixins": [
-    "MixinBear",
-    "MixinGiraffe"
+    "EntityAccessor",
+    "MixinBear"
   ],
   "injectors": {
     "defaultRequire": 1

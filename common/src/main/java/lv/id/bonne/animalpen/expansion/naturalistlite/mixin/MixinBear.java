@@ -4,10 +4,10 @@
 //
 
 
-package lv.id.bonne.animalpen.expansion.naturalistlite.neoforge.mixin;
+package lv.id.bonne.animalpen.expansion.naturalistlite.mixin;
 
 
-import com.starfish_studios.naturalist.server.entity.mob.Bear;
+import com.crispytwig.naturalist.server.entity.mob.Bear;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 

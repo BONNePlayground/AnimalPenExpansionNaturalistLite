@@ -1,7 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.5.169"
     id "dev.architectury.loom" version "1.17.487" apply false
-    id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
+    id 'com.gradleup.shadow' version '9.3.0'
 }
 
 architectury {
@@ -39,6 +39,14 @@ subprojects {
         maven {
             name = 'GeckoLib'
             url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        }
+
+        maven {
+            url = "https://api.modrinth.com/maven"
+        }
+
+        repositories {
+            maven { url "https://maven.parchmentmc.org" }
         }
     }
 

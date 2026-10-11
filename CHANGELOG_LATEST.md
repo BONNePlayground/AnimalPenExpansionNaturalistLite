@@ -1,5 +1,30 @@
-# Version 4.0
+# Version 6.1
 
-- Allow Naturalists entities be picked up.  
-- Server side - implements all Naturalists entity interactions with animal pens mod.
-- Add new animals
+- Update to Naturalist 2+
+- Added:
+  - ANT
+  - BLACK_BEAR
+  - CAPYBARA
+  - CRAB
+  - GIANT_ISOPOD
+  - HEDGEHOG
+  - KOMODO_DRAGON
+  - MAMMOTH
+  - MOLE
+  - OSTRICH
+  - DESERT_SCORPION
+  - JUNGLE_SCORPION
+  - RAT
+  - TIGER
+  - TURKEY
+  - ANGLERFISH
+  - RAY
+  - BLOBFISH
+  - PIRANHA
+  - CLAM
+  - CRAB
+  - GIANT_ISOPOD
+  - GREAT_WHITE_SHARK
+  - JELLYFISH
+  - STARFISH
+  - WHALE
